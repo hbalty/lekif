@@ -9083,3 +9083,10 @@ function wp_is_heic_image_mime_type( $mime_type ) {
 
 	return in_array( $mime_type, $heic_mime_types, true );
 }
+
+add_filter( 'woocommerce_checkout_fields' , 'make_checkout_phone_required' );
+
+function make_checkout_phone_required( $fields ) {
+    $fields['billing']['billing_phone']['required'] = true;
+    return $fields;
+}
